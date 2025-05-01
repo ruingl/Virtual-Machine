@@ -1,4 +1,4 @@
-name: Start
+name: Cl
 
 on: [push, workflow_dispatch]
 
@@ -26,11 +26,10 @@ jobs:
 
     - run: Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp' -Name "UserAuthentication" -Value 1
 
-    - name: Set user password
+    - name: Set runneradmin password
       run: |
-        $username = "${{ secrets.USER_NAME }}"
         $password = ConvertTo-SecureString "${{ secrets.USER_PASSWORD }}" -AsPlainText -Force
-        Set-LocalUser -Name $username -Password $password
+        Set-LocalUser -Name "runneradmin" -Password $password
 
     - name: Create Tunnel
       run: .\ngrok\ngrok.exe tcp 3389

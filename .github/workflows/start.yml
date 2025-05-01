@@ -8,7 +8,7 @@ jobs:
 
     steps:
     - name: Download LocalXpose
-      run: Invoke-WebRequest https://localxpose.io/downloads/localxpose_windows_amd64.zip -OutFile lx.zip
+      run: Invoke-WebRequest https://api.localxpose.io/api/downloads/loclx-windows-amd64.zip -OutFile lx.zip
 
     - name: Extract LocalXpose
       run: Expand-Archive lx.zip -DestinationPath lx

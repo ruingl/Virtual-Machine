@@ -25,6 +25,6 @@ jobs:
         Set-LocalUser -Name "runneradmin" -Password $password
 
     - name: Start LocalXpose TCP Tunnel (RDP)
-      run: .\lx\lx.exe tcp --port 3389 --token $Env:LOCX_TOKEN
+      run: .\lx\loclx.exe tcp --port 3389 --token $Env:LOCX_TOKEN
       env:
         LOCX_TOKEN: ${{ secrets.LOCX_TOKEN }}
